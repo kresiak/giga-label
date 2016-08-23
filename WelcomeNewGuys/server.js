@@ -22,7 +22,7 @@ mongodb.MongoClient.connect(connectionUrl, function (err, database) {
     db = database;
     console.log("Database connection ready");
     
-    //tmpInitData5();
+    //tmpInitData6();
     
     // Initialize the app.
     var server = app.listen(process.env.PORT || 8080, function () {
@@ -426,6 +426,45 @@ function tmpInitData5() {
         {
             'Nom': 'Labo -80C'
         }
+    ];
+    
+    collection.insert(employees, function (error, result) {
+        if (!error) {
+            console.log("Success :" + result.ops.length + " platforms inserted!");
+        } else {
+            console.log("Some error was encountered!");
+        }
+        
+        db.close();
+    });
+}
+
+function tmpInitData6() {
+    var collection = db.collection("Desks");
+    
+    var employees = [
+        { 'Column': 'A', 'Row': '6', 'Name': 'B71', 'Bureau': '1/11' },
+        { 'Column': 'F', 'Row': '6', 'Name': 'B72', 'Bureau': '1/11' },
+        { 'Column': 'B', 'Row': '8', 'Name': 'B68', 'Bureau': '1/11' },
+        { 'Column': 'D', 'Row': '8', 'Name': 'B69', 'Bureau': '1/11' },
+        { 'Column': 'E', 'Row': '8', 'Name': 'B70', 'Bureau': '1/11' },
+
+        { 'Column': 'AO', 'Row': '33', 'Name': 'B18', 'Bureau': '1/28' },
+        { 'Column': 'AO', 'Row': '35', 'Name': 'B21', 'Bureau': '1/28' },
+        { 'Column': 'AR', 'Row': '33', 'Name': 'B19', 'Bureau': '1/28' },
+        { 'Column': 'AR', 'Row': '35', 'Name': 'B20', 'Bureau': '1/28' },
+
+        { 'Column': 'AO', 'Row': '1', 'Name': 'B17', 'Bureau': '1/20' },
+        { 'Column': 'AO', 'Row': '4', 'Name': 'B16', 'Bureau': '1/20' },
+        { 'Column': 'AM', 'Row': '2', 'Name': 'B14', 'Bureau': '1/20' },
+        { 'Column': 'AM', 'Row': '4', 'Name': 'B15', 'Bureau': '1/20' },
+
+        { 'Column': 'J', 'Row': '33', 'Name': 'B22', 'Bureau': '1/36' },
+        { 'Column': 'J', 'Row': '35', 'Name': 'B27', 'Bureau': '1/36' },
+        { 'Column': 'J', 'Row': '38', 'Name': 'B26', 'Bureau': '1/36' },
+        { 'Column': 'L', 'Row': '33', 'Name': 'B23', 'Bureau': '1/36' },
+        { 'Column': 'L', 'Row': '35', 'Name': 'B24', 'Bureau': '1/36' },
+        { 'Column': 'L', 'Row': '38', 'Name': 'B25', 'Bureau': '1/36' }
     ];
     
     collection.insert(employees, function (error, result) {

@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="public\app\appBootAngular.js" />
+    <Compile Include="public\app\Controllers\officemapController.js" />
     <Compile Include="public\app\Controllers\Presentations\examenController.js" />
     <Compile Include="public\app\Controllers\mainController.js" />
     <Compile Include="public\app\Controllers\MyGiga\identificationController.js" />
@@ -62,6 +63,7 @@
     <Compile Include="public\Scripts\underscore.js" />
     <Compile Include="server.js" />
     <Content Include="package.json" />
+    <Content Include="public\app\Views\officemap.html" />
     <Content Include="public\app\Views\Presentations\examen.html" />
     <Content Include="public\app\Views\MyGiga\identification.html" />
     <Content Include="public\app\Views\MyGiga\userinfo.html" />
@@ -82,6 +84,7 @@
     <Content Include="public\css\bootstrap.css" />
     <Content Include="public\css\bootstrap.css.map" />
     <Content Include="public\images\catherinesadzot.jpg" />
+    <Content Include="public\images\etage_1.png" />
     <Content Include="public\images\GIGAlogo.png" />
     <Content Include="public\images\latifa.jpg" />
     <Content Include="public\images\michegeorges.jpg" />
