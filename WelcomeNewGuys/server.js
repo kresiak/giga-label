@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 
 var db;
 
-var connectionUrl = 'mongodb://localhost:27017/giga';
+var connectionUrl = 'mongodb://127.0.0.1:27017/giga';
 
 // Connect to the database before starting the application server.
 mongodb.MongoClient.connect(connectionUrl, function (err, database) {
