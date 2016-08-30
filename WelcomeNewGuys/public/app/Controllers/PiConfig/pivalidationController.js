@@ -6,6 +6,7 @@ app.controller("pivalidationController",
     
     $scope.isLoaded = false;
     $scope.selectOfficeMode = false;
+    $scope.showEndPage = false;
     
     var promises = [];
     
@@ -48,12 +49,16 @@ app.controller("pivalidationController",
    
     $q.all(promises)
             .then(function () {
+        if ($scope.answersByPi && $scope.answersByPi.selectedDesk) {
+            $scope.selectedDesk= $scope.desks.filter(function(d){return d._id=== $scope.answersByPi.selectedDesk})[0].Name;
+        }
         $scope.isLoaded = true;
     });
     
     $scope.gotoEnd = function () {
         $scope.answersByPi.dateUpdate = new Date();
         dataService.callWebService('UpdatePiAnswer', { 'userId': $stateParams.userId, 'piId': $stateParams.piId, 'piAnswer' : $scope.answersByPi });
+        $scope.showEndPage = true;
         //$state.go('examen');
     }
    
@@ -83,5 +88,11 @@ app.controller("pivalidationController",
         return $scope.tabNo;
     }
     
-     
+    $scope.hideSubmit = function() {
+        return $scope.showEndPage || $scope.selectOfficeMode;
+    }
+
+    $scope.setSelectOfficeMode = function(flag) {
+        $scope.selectOfficeMode = flag;
+    }
 });

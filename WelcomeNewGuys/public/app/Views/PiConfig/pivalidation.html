@@ -4,7 +4,7 @@
     </div>
 
     <div class="panel-body" ng-if="isLoaded">
-        <div class="row rowdistant">
+        <div class="row rowdistant" ng-hide="showEndPage">
             <div class="col-sm-6 vcenter">
                 <h5><b>{{userFullname}}</b> has introduced a demand to join GIGA under your supervision. Do you confirm the validity of this demand?</h5>
             </div>
@@ -26,7 +26,7 @@
 
             </div>
         </div>
-        <div ng-show="answersByPi.AllowMode==='yes' && ! selectOfficeMode">
+        <div ng-show="answersByPi.AllowMode==='yes' && ! selectOfficeMode && !showEndPage">
             <div class="row rowdistant">
                 <div class="col-sm-6 vcenter">
                     <h5>Which office and lab bench will you assign to {{userFullname}}?</h5>
@@ -37,7 +37,7 @@
                     </div>
                     <div class="row">
                         <div class="col-sm-12">
-                            <a class="pointer" ng-click="selectOfficeMode=true">Choose from active screen</a>
+                            <a class="pointer" ng-click="setSelectOfficeMode(true)">Choose from active screen</a>
                         </div>
                     </div>
 
@@ -157,7 +157,7 @@
                 </div>
             </div>
         </div>
-        <div ng-show="answersByPi.AllowMode==='yes' && selectOfficeMode">
+        <div ng-show="answersByPi.AllowMode==='yes' && selectOfficeMode && !showEndPage">
             <script type="text/ng-template" id="myPopoverTemplate.html">
                 <div ng-controller="deskAreaPopOverController">
                     <p>{{popOverText}}</p>
@@ -167,7 +167,8 @@
 
             <div>
                 <div class="row rowdistant">
-                    <div class="col-sm-4"><a class="pointer" ng-click="selectOfficeMode=false">Close active screen</a></div>
+                    <div class="col-sm-4"><a class="pointer" ng-click="setSelectOfficeMode(false)">Close active screen</a>
+                    </div>
                     <div class="col-sm-4">{{selectedDesk ? 'Selected desk: ' + selectedDesk : ''}}</div>
                 </div>
                 <div class="row rowdistant">
@@ -185,11 +186,14 @@
                 </div>
 
             </div>
-            
+
+        </div>
+        <div ng-show="showEndPage">
+            <h3>Thank you! Your specification has been forwarded to Administration.</h3>
         </div>
     </div>
 
-    <div class="row">
+    <div class="row rowdistant" ng-show="!hideSubmit()">
         <div class="col-sm-12">
             <button ng-click="gotoEnd()" class="btn btn-danger">Submit</button>
         </div>

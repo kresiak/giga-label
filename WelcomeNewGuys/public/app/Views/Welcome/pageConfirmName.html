@@ -4,7 +4,7 @@
     </div>
 
     <div class="panel-body">
-        <div class="row">
+        <div class="row" ng-hide="!possibleUsers || possibleUsers.length===0">
             <div class="col-sm-4">We found a possible ULg email address, as well as an ULg identifier for you. Thank you for choosing the right one or telling us that none of these corresponds to you.</div>
             <div class="col-sm-8">
                 <div class="row">
@@ -14,9 +14,14 @@
                         </div>
                     </div>
                     <div class="col-sm-8">
-                        <select ng-model="specifiedUserId" size="5">
+                        <div style="">
+                            <div class="list-group">
+                                <a ng-repeat="candidate in possibleUsers" class="list-group-item" ng-click="setUserSelected(candidate)" ng-class="{active:isUserTheActiveOne(candidate)}">{{getDisplayUserName(candidate)}}</a>
+                            </div>
+                        </div>
+                        <!--<select ng-model="specifiedUserId" size="5">
                             <option ng-repeat="candidate in possibleUsers" value="{{candidate._id}}">{{getDisplayUserName(candidate)}}</option>
-                        </select>
+                        </select>-->
                     </div>
                 </div>
                 <div class="row">
@@ -27,6 +32,9 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div ng-show="!possibleUsers || possibleUsers.length===0">
+            <h3>Unfortunately we could not find you in our database. We will create a temporyry user for you. Please continue.</h3>
         </div>
     </div>
 </div>

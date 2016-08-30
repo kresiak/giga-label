@@ -34,4 +34,17 @@ app.controller("pageConfirmNameController", function ($scope, dataService, trans
         }
     })
     ;
+
+    $scope.userSelected = null;
+    
+    $scope.setUserSelected = function (user) {
+        $scope.userSelected = user;
+        $scope.specifiedUserId = user._id;
+    }
+    
+    $scope.isUserTheActiveOne = function (user) {
+        return $scope.userSelected === user;
+    }
+
+
 });

@@ -30,4 +30,16 @@ app.controller("pageChoosePiController", function ($scope, dataService, transiti
         }
     })
     ;
+
+    $scope.piSelected = null;
+    
+    $scope.setPiSelected = function (pi) {
+        $scope.piSelected = pi;
+        $scope.ChosenPiId = pi._id;
+    }
+    
+    $scope.isPiTheActiveOne = function (pi) {
+        return $scope.piSelected === pi;
+    }
+
 });
