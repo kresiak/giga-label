@@ -11,10 +11,20 @@ app.config([
         //    url: '/officemap',
         //    templateUrl: 'App/Views/officemap.html'
         //})
+            .state('menu',
+                {
+            url: '/menu',
+            templateUrl: 'App/Views/tmpMenu.html'
+        })
             .state('pivalidation',
                 {
             url: '/pivalidation/:piId/:userId',
             templateUrl: 'App/Views/PiConfig/pivalidation.html'
+        })
+            .state('piMyUsers',
+                {
+            url: '/piMyUsers',
+            templateUrl: 'App/Views/PiConfig/piMyUsers.html'
         })
             .state('identification',
                 {

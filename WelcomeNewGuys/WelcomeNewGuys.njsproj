@@ -32,6 +32,7 @@
   <ItemGroup>
     <Compile Include="public\app\appBootAngular.js" />
     <Compile Include="public\app\Controllers\officemapController.js" />
+    <Compile Include="public\app\Controllers\PiConfig\piMyUsersController.js" />
     <Compile Include="public\app\Controllers\Presentations\examenController.js" />
     <Compile Include="public\app\Controllers\mainController.js" />
     <Compile Include="public\app\Controllers\MyGiga\identificationController.js" />
@@ -64,6 +65,7 @@
     <Compile Include="public\Scripts\underscore.js" />
     <Compile Include="server.js" />
     <Content Include="package.json" />
+    <Content Include="public\app\Views\PiConfig\piMyUsers.html" />
     <Content Include="public\app\Views\Presentations\examen.html" />
     <Content Include="public\app\Views\MyGiga\identification.html" />
     <Content Include="public\app\Views\MyGiga\userinfo.html" />
@@ -72,6 +74,7 @@
     <Content Include="public\app\Views\Presentations\Studies\EveryDayGiga.html" />
     <Content Include="public\app\Views\Presentations\Studies\LegalGiga.html" />
     <Content Include="public\app\Views\Presentations\score.html" />
+    <Content Include="public\app\Views\tmpMenu.html" />
     <Content Include="public\app\Views\Welcome\welcome.html" />
     <Content Include="public\app\Views\Welcome\pageAskEmail.html" />
     <Content Include="public\app\Views\Welcome\pageAskName.html" />
