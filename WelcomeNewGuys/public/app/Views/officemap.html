@@ -1,16 +1,26 @@
 ﻿<script type="text/ng-template" id="myPopoverTemplate.html">
     <div ng-controller="deskAreaPopOverController">
-        <div>{{popOverText}}</div>
+        <p>{{popOverText}}</p>
+        <p>Presently: Latfa Karim</p>
     </div>
 
 </script>
 
 
 <div ng-controller="officemapController">
-    <img src="../../images/etage_1.png" usemap="#auto"/>
-    <map name="auto" id="auto">
-        <area ng-repeat="desk in desks" ng-mouseenter="enterArea(desk)" id="akx{{$index}}" uib-popover-template="'myPopoverTemplate.html'" popover-trigger="mouseenter" popover-popup-delay="200" shape="rect" coords="{{getCoordinate(desk)}}"  ng-click="clickDesk(desk)"/>
-    </map>
+    <div class="row">
+        <uib-tabset active="tabNo">
+            <uib-tab index="0" heading="Etage +1" select="setTab(0)">
+                <img src="../../images/etage_1.png" usemap="#auto" />
+                <map name="auto" id="auto">
+                    <area ng-repeat="desk in desks" ng-mouseenter="enterArea(desk)" id="akx{{$index}}" uib-popover-template="'myPopoverTemplate.html'" popover-trigger="mouseenter" popover-popup-delay="200" shape="rect" coords="{{getCoordinate(desk)}}" ng-click="clickDesk(desk)" />
+                </map>                
+            </uib-tab>
+            <uib-tab index="1" heading="Etage +4" select="setTab(1)">
+
+            </uib-tab>
+        </uib-tabset>
+    </div>
 
 </div>
 

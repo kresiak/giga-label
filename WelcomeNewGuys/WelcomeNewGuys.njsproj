@@ -48,6 +48,7 @@
     <Compile Include="public\app\Services\configService.js" />
     <Compile Include="public\app\Services\dataService.js" />
     <Compile Include="public\app\Services\transitionService.js" />
+    <Compile Include="public\app\code\utils.js" />
     <Compile Include="public\Scripts\angular-animate.min.js" />
     <Compile Include="public\Scripts\angular-local-storage.min.js" />
     <Compile Include="public\Scripts\angular-route.js" />
@@ -63,7 +64,6 @@
     <Compile Include="public\Scripts\underscore.js" />
     <Compile Include="server.js" />
     <Content Include="package.json" />
-    <Content Include="public\app\Views\officemap.html" />
     <Content Include="public\app\Views\Presentations\examen.html" />
     <Content Include="public\app\Views\MyGiga\identification.html" />
     <Content Include="public\app\Views\MyGiga\userinfo.html" />
@@ -116,6 +116,7 @@
     <Folder Include="public\css\" />
     <Folder Include="public\fonts\" />
     <Folder Include="public\images\" />
+    <Folder Include="public\app\code\" />
     <Folder Include="public\Scripts\" />
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->

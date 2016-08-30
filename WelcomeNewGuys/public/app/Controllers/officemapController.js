@@ -8,49 +8,48 @@ app.controller("deskAreaPopOverController",
     });
 
 
-app.controller("officemapController",
-    function ($scope, $stateParams, dataService, $rootScope, $state, $q) {
+//app.controller("officemapController",
+//    function ($scope, $stateParams, dataService, $rootScope, $state, $q) {
+       
+//    //var xx = ['A', 'AA', 'AB', 'ZZ'].map(foo);
     
-    var fromExcelColToNumber = function (val) {
-        var base = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', i, j, result = 0;
-        
-        for (i = 0, j = val.length - 1; i < val.length; i += 1, j -= 1) {
-            result += Math.pow(base.length, j) * (base.indexOf(val[i]) + 1);
-        }
-        
-        return result;
-    };
+//    $scope.isLoaded = false;
     
-    //var xx = ['A', 'AA', 'AB', 'ZZ'].map(foo);
+//    var promises = [];
     
-    $scope.isLoaded = false;
+//    promises.push(dataService.crudGetRecords('Desks').then(
+//        function (response) {
+//            $scope.desks = response.data;
+//        }
+//    ));
     
-    var promises = [];
+//    $q.all(promises).then(function () {
+//        $scope.isLoaded = true;
+//    });
     
-    promises.push(dataService.crudGetRecords('Desks').then(
-        function (response) {
-            $scope.desks = response.data;
-        }
-    ));
+//    $scope.getCoordinate = function (desk) {
+//        var col = Excel.fromExcelColToNumber(desk.Column);
+//        var row = desk.Row;
+//        var size = 20;
+//        var left = (col - 1) * size;
+//        var top = (row - 1) * size;
+//        return left + ',' + top + ',' + (left + size) + ',' + (top + size);
+//    };
     
-    $q.all(promises).then(function () {
-        $scope.isLoaded = true;
-    });
-    
-    $scope.getCoordinate = function (desk) {
-        var col = fromExcelColToNumber(desk.Column);
-        var row = desk.Row;
-        var size = 20;
-        var left = (col - 1) * size;
-        var top = (row - 1) * size;
-        return left + ',' + top + ',' + (left + size) + ',' + (top + size);
-    };
-    
-    $scope.clickDesk = function (desk) {
+//    $scope.clickDesk = function (desk) {
 
-    };
+//    };
     
-    $scope.enterArea = function (desk) {
-        $scope.currentDesk = desk;
-    };
-});
+//    $scope.enterArea = function (desk) {
+//        $scope.currentDesk = desk;
+//    };
+
+//    $scope.setTab = function (tabNo) {
+//        $scope.tabNo = tabNo;
+//    }
+    
+//    $scope.getTab = function () {
+//        return $scope.tabNo;
+//    }
+
+//});

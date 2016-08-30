@@ -6,11 +6,11 @@ app.config([
         $urlRouterProvider.otherwise('/');
         
         $stateProvider
-            .state('officemap',
-                {
-            url: '/officemap',
-            templateUrl: 'App/Views/officemap.html'
-        })
+        //    .state('officemap',
+        //        {
+        //    url: '/officemap',
+        //    templateUrl: 'App/Views/officemap.html'
+        //})
             .state('pivalidation',
                 {
             url: '/pivalidation/:piId/:userId',

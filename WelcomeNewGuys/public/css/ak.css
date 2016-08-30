@@ -56,3 +56,7 @@ img.galery:hover{
 .rowdistant{
   margin-bottom: 30px
 }
+
+.pointer {
+    cursor: pointer;
+}
