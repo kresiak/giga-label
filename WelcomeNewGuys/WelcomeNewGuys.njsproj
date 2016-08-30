@@ -48,6 +48,7 @@
     <Compile Include="public\app\Controllers\Welcome\pageUserRegisteredController.js" />
     <Compile Include="public\app\Services\configService.js" />
     <Compile Include="public\app\Services\dataService.js" />
+    <Compile Include="public\app\Services\askLoginService.js" />
     <Compile Include="public\app\Services\transitionService.js" />
     <Compile Include="public\app\code\utils.js" />
     <Compile Include="public\Scripts\angular-animate.min.js" />

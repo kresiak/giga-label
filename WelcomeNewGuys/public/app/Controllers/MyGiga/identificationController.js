@@ -2,20 +2,10 @@
 'use strict';
 
 app.controller("identificationController",
-    function ($scope, $stateParams, dataService, $rootScope, $state) {
-    
-    
-    $scope.gotoLogin = function () {
+    function (askLoginService, $scope, $stateParams, dataService, $rootScope, $state) {
         
-        dataService.crudGetRecordById('Employees', $scope.userId).then(
-            function (response) {
-                if (response.data) {
-                    $rootScope.user = response.data;
-                    $state.go('userinfo');            
-                }
-                
-            }
-        );
+    $scope.gotoLogin = function () {
+        askLoginService.transmitLoginInfo($scope.userId, $scope.password);
     }
     
 });
