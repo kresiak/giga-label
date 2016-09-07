@@ -23,6 +23,9 @@ app.controller("pageConfirmNameController", function ($scope, dataService, trans
 
     transitionService.setOnNavigateCallback(function (isContinue) {
         if (isContinue) {
+            if ($scope.possibleUsers.length === 0) {
+                return true;
+            }
             if ($scope.userAnswer && ($scope.userAnswer === 'no' || $scope.specifiedUserId)) {
                 $rootScope.User = $scope.userAnswer === 'no' ? null : $scope.possibleUsers.filter(function (u) { return u._id === $scope.specifiedUserId})[0] ;
                 return true;
