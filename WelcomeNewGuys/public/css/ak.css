@@ -60,3 +60,7 @@ img.galery:hover{
 .pointer {
     cursor: pointer;
 }
+
+#pageAskEmail-label {
+	color: #F00;
+}

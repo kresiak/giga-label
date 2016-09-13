@@ -26,7 +26,7 @@ mongodb.MongoClient.connect(connectionUrl, function (err, database) {
     //tmpInitData6();
     
     // Initialize the app.
-    var server = app.listen(process.env.PORT || 8080, function () {
+    var server = app.listen(process.env.PORT || 1337, function () {
         var port = server.address().port;
         console.log("App now running on port", port);
     });
