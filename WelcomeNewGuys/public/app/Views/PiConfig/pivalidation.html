@@ -26,7 +26,7 @@
 
             </div>
         </div>
-        <div ng-show="answersByPi.AllowMode==='yes' && ! selectOfficeMode && ! selectLabMode && !showEndPage">  <!-- niepotrzebne-->
+        <div ng-show="answersByPi.AllowMode==='yes' && ! selectOfficeMode && ! selectLabMode && !showEndPage">  
             <div class="row rowdistant">
                 <div class="col-sm-6 vcenter">
                     <h5>Which office and lab bench will you assign to {{userFullname}}?</h5>
@@ -158,14 +158,14 @@
                 </div>
             </div>
         </div>
-        <div ng-show="answersByPi.AllowMode==='yes' && selectOfficeMode && ! selectLabMode && ! showEndPage"> <!-- też niepotrzebne-->
+        <div ng-show="answersByPi.AllowMode==='yes' && selectOfficeMode && ! selectLabMode && ! showEndPage"> 
             <script type="text/ng-template" id="myPopoverTemplate.html">
                 <div ng-controller="deskAreaPopOverController">
                     <p>{{popOverText}}</p>
                     <p>Presently: Latfa Karim</p>
                 </div>
             </script>
-                                                                                           <!--response -->
+                                                                                        
             <div>
                 <div class="row rowdistant">
                     <div class="col-sm-4"><a class="pointer" ng-click="setSelectOfficeMode(false)" >Close active screen</a>
@@ -176,7 +176,7 @@
                 
                 <div class="row rowdistant">
                     <uib-tabset active="tabNo">  
-                        <uib-tab index="0" heading="Etage +1" select="setTab(0)">  <!--sprawdzić TabNo -->
+                        <uib-tab index="0" heading="Etage +1" select="setTab(0)"> 
                             <img src="../../images/etage_1.png" usemap="#auto" />
                             <map name="auto" id="auto">
                                 <area ng-repeat="desk in desks" ng-mouseenter="enterArea(desk)" id="akx{{$index}}" uib-popover-template="'myPopoverTemplate.html'" popover-trigger="mouseenter" popover-popup-delay="200" shape="rect" coords="{{getCoordinate(desk)}}" ng-click="clickDesk(desk)" />
