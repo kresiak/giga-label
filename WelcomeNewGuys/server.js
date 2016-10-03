@@ -39,6 +39,8 @@ function handleError(res, reason, message, code) {
 }
 
 app.get("/data/:type", function (req, res) {
+
+
     db.collection(req.params.type).find({}).toArray(function (err, docs) {
         if (err) {
             handleError(res, err.message, 'Failed to get ' + req.params.type + '.');
@@ -442,7 +444,7 @@ function tmpInitData5() {
 
 function tmpInitData6() {
     var collection = db.collection("Desks");
-    
+
     var employees = [
         { 'Column': 'A', 'Row': '6', 'Name': 'B71', 'Bureau': '1/11' },
         { 'Column': 'F', 'Row': '6', 'Name': 'B72', 'Bureau': '1/11' },
@@ -467,8 +469,8 @@ function tmpInitData6() {
         { 'Column': 'L', 'Row': '35', 'Name': 'B24', 'Bureau': '1/36' },
         { 'Column': 'L', 'Row': '38', 'Name': 'B25', 'Bureau': '1/36' }
     ];
-    
-    collection.insert(employees, function (error, result) {
+
+      collection.insert(employees, function (error, result) {
         if (!error) {
             console.log("Success :" + result.ops.length + " platforms inserted!");
         } else {
@@ -479,3 +481,22 @@ function tmpInitData6() {
     });
 }
 
+function tmpInitData7() {
+        var collection = db.collection("Laboratoires");
+
+        var employees = [
+            { 'Column': 'V', 'Row': '4', 'Name': '1', 'Laboratoire': '1/20' },
+            { 'Column': 'X', 'Row': '3', 'Name': '5', 'Laboratoire': '1/20' },
+            { 'Column': 'Y', 'Row': '4', 'Name': '6', 'Laboratoire': '1/20' }
+        ];
+
+        collection.insert(employees, function (error, result) {
+            if (!error) {
+                console.log("Success :" + result.ops.length + " platforms inserted!");
+            } else {
+                console.log("Some error was encountered!");
+            }
+
+            db.close();
+        });
+}

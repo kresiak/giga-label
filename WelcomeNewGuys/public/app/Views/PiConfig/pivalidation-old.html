@@ -26,23 +26,47 @@
 
             </div>
         </div>
-        <div ng-show="answersByPi.AllowMode==='yes' && ! selectOfficeMode && ! selectLabMode && !showEndPage">  <!-- niepotrzebne-->
+        <div ng-show="answersByPi.AllowMode==='yes' && ! selectOfficeMode && !showEndPage">
             <div class="row rowdistant">
                 <div class="col-sm-6 vcenter">
                     <h5>Which office and lab bench will you assign to {{userFullname}}?</h5>
                 </div>
                 <div class="col-sm-5 vcenter">
                     <div class="row">
-                        <div class="col-sm-12">{{selectedDesk ? 'Selected desk: ' + selectedDesk : 'Nothing selected yet'}} </div>
-                        <div class="col-sm-12">{{selectedLab ? 'Selected labo: ' + selectedLab : 'Nothing selected yet'}} </div>
+                        <div class="col-sm-12">{{selectedDesk ? 'Selected desk: ' + selectedDesk : 'Nothing selected yet'}}</div>
                     </div>
+                 
+                    <div class="row">
+                        <div class="col-sm-12">{{selectedLab ? 'Selected labo: ' + selectedLab : 'Nothing selected yet'}}</div>
+                    </div>
+
                     <div class="row">
                         <div class="col-sm-12">
                             <a class="pointer" ng-click="setSelectOfficeMode(true)">Choose from active screen</a>
                         </div>
                     </div>
-                   
+
                 </div>
+            </div>
+
+            <div class="row rowdistant">
+                <div class="col-sm-4">
+                    <a class="pointer" ng-click="setSelectOfficeMode(false)">Close active screen ten 53</a>
+                </div>
+                <div class="col-sm-4" style="color:red;border:solid;">{{selectedLab ? 'Selected lab: ' + selectedLab : ''}}</div>
+
+            </div>
+            <div class="row rowdistant">
+                <uib-tabset active="tabNo">
+                    <uib-tab index="0" heading="Etage +1" select="setTab(0)">
+                        <img src="../../images/etage_1.png" usemap="#auto" />
+                        <map name="auto" id="auto">
+                            <area ng-repeat="lab in laboratoires" ng-mouseenter="enterArea(lab)" id="akx{{$index}}" uib-popover-template="'myPopoverTemplate.html'" popover-trigger="mouseenter" popover-popup-delay="200" shape="rect" coords="{{getCoordinate(lab)}}" ng-click="clickLab(lab)" />
+                        </map>
+                    </uib-tab>
+                    <uib-tab index="1" heading="Etage +4" select="setTab(1)">
+                    </uib-tab>
+                </uib-tabset>
             </div>
 
             <div class="row rowdistant">
@@ -158,37 +182,37 @@
                 </div>
             </div>
         </div>
-        <div ng-show="answersByPi.AllowMode==='yes' && selectOfficeMode && ! selectLabMode && ! showEndPage"> <!-- też niepotrzebne-->
+        <div ng-show="answersByPi.AllowMode==='yes' && selectOfficeMode && !showEndPage">
             <script type="text/ng-template" id="myPopoverTemplate.html">
-                <div ng-controller="deskAreaPopOverController">
+                <div ng-controller="AreaPopOverController">
                     <p>{{popOverText}}</p>
                     <p>Presently: Latfa Karim</p>
                 </div>
             </script>
-                                                                                           <!--response -->
+
             <div>
                 <div class="row rowdistant">
-                    <div class="col-sm-4"><a class="pointer" ng-click="setSelectOfficeMode(false)" >Close active screen</a>
+                    <div class="col-sm-4"><a class="pointer" ng-click="setSelectOfficeMode(false)">Close active screen 177</a>
                     </div>
-                    <div class="col-sm-4">{{selectedDesk ? 'Selected desk: ' + selectedDesk : ''}} </div>
-                    <div class="col-sm-4">{{selectedLab ? 'Selected labo: ' + selectedLab : ''}} </div>
+                    <div class="col-sm-4">{{selectedDesk ? 'Selected desk: ' + selectedDesk : ''}}</div>
+                   
                 </div>
-                
                 <div class="row rowdistant">
-                    <uib-tabset active="tabNo">  
-                        <uib-tab index="0" heading="Etage +1" select="setTab(0)">  <!--sprawdzić TabNo -->
-                            <img src="../../images/etage_1.png" usemap="#auto" />
+                    <uib-tabset active="tabNo">
+                        <uib-tab index="0" heading="Etage +1" select="setTab(0)">
+                            <img src="../../images/etage_1.png" usemap="#auto"/>
                             <map name="auto" id="auto">
-                                <area ng-repeat="desk in desks" ng-mouseenter="enterArea(desk)" id="akx{{$index}}" uib-popover-template="'myPopoverTemplate.html'" popover-trigger="mouseenter" popover-popup-delay="200" shape="rect" coords="{{getCoordinate(desk)}}" ng-click="clickDesk(desk)" />
-                                <area ng-repeat="lab in laboratoires" ng-mouseenter="enterArea(lab)" id="akx{{$index}}" uib-popover-template="'myPopoverTemplate.html'" popover-trigger="mouseenter" popover-popup-delay="200" shape="rect" coords="{{getCoordinate(lab)}}" ng-click="clickLab(lab)" />
+                                <area ng-repeat="desk in desks" ng-mouseenter="enterArea(desk)" id="akx{{$index}}" uib-popover-template="'myPopoverTemplate.html'" popover-trigger="mouseenter" popover-popup-delay="200" shape="rect" coords="{{getCoordinate(desk)}}" ng-click="clickDesk(desk)"/>
                             </map>
                         </uib-tab>
                         <uib-tab index="1" heading="Etage +4" select="setTab(1)">
-
                         </uib-tab>
                     </uib-tabset>
                 </div>
-            </div>
+               
+           </div>
+
+           
 
         </div>
         <div ng-show="showEndPage">

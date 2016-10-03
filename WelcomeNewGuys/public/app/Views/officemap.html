@@ -14,7 +14,12 @@
                 <img src="../../images/etage_1.png" usemap="#auto" />
                 <map name="auto" id="auto">
                     <area ng-repeat="desk in desks" ng-mouseenter="enterArea(desk)" id="akx{{$index}}" uib-popover-template="'myPopoverTemplate.html'" popover-trigger="mouseenter" popover-popup-delay="200" shape="rect" coords="{{getCoordinate(desk)}}" ng-click="clickDesk(desk)" />
+                </map>
+<!--   niepotrzebne
+                 <map name="auto" id="auto">
+                    <area ng-repeat="lab in laboratoires" ng-mouseenter="enterArea(lab)" id="akx{{$index}}" uib-popover-template="'myPopoverTemplate.html'" popover-trigger="mouseenter" popover-popup-delay="200" shape="rect" coords="{{getCoordinate(lab)}}" ng-click="clickLab(lab)" />
                 </map>                
+    -->  
             </uib-tab>
             <uib-tab index="1" heading="Etage +4" select="setTab(1)">
 
@@ -23,4 +28,3 @@
     </div>
 
 </div>
-

@@ -6,6 +6,7 @@ app.controller("pivalidationController",
     
     $scope.isLoaded = false;
     $scope.selectOfficeMode = false;
+    $scope.selectLabMode = false;
     $scope.showEndPage = false;
     
     var promises = [];
@@ -46,14 +47,28 @@ app.controller("pivalidationController",
             $scope.desks = response.data;
         }
     ));
-   
-    $q.all(promises)
-            .then(function () {
-        if ($scope.answersByPi && $scope.answersByPi.selectedDesk) {
-            $scope.selectedDesk= $scope.desks.filter(function(d){return d._id=== $scope.answersByPi.selectedDesk})[0].Name;
+
+    promises.push(dataService.crudGetRecords('Laboratoires').then(
+        function (response) {
+            $scope.laboratoires = response.data;
         }
-        $scope.isLoaded = true;
-    });
+    ));
+
+    $q.all(promises)
+        .then(function () {
+            if ($scope.answersByPi && $scope.answersByPi.selectedDesk) {
+                $scope.selectedDesk = $scope.desks.filter(function (d) { return d._id === $scope.answersByPi.selectedDesk })[0].Name;
+            }
+            $scope.isLoaded = true;
+        });
+
+    $q.all(promises)
+        .then(function () {
+            if ($scope.answersByPi && $scope.answersByPi.selectedLab) {
+                $scope.selectedLab = $scope.laboratoires.filter(function (la) { return la._id === $scope.answersByPi.selectedLab })[0].Name;
+            }
+            $scope.isLoaded = true;
+        });
     
     $scope.gotoEnd = function () {
         $scope.answersByPi.dateUpdate = new Date();
@@ -70,7 +85,25 @@ app.controller("pivalidationController",
         var top = (row - 1) * size;
         return left + ',' + top + ',' + (left + size) + ',' + (top + size);
     };
-    
+
+    $scope.getCoordinate = function (lab) {
+        var col = Excel.fromExcelColToNumber(lab.Column);
+        var row = lab.Row;
+        var size = 20;
+        var left = (col - 1) * size;
+        var top = (row - 1) * size;
+        return left + ',' + top + ',' + (left + size) + ',' + (top + size);
+    };
+
+    $scope.clickLab = function (lab) {                      
+        $scope.answersByPi.selectedLab = lab._id;
+        $scope.selectedLab = lab.Name;
+    };
+
+    $scope.enterArea = function (lab) {
+        $scope.currentLab = lab;
+    };
+
     $scope.clickDesk = function (desk) {
         $scope.answersByPi.selectedDesk = desk._id;
         $scope.selectedDesk = desk.Name;
@@ -79,7 +112,7 @@ app.controller("pivalidationController",
     $scope.enterArea = function (desk) {
         $scope.currentDesk = desk;
     };
-    
+
     $scope.setTab = function (tabNo) {
         $scope.tabNo = tabNo;
     }
@@ -90,6 +123,14 @@ app.controller("pivalidationController",
     
     $scope.hideSubmit = function() {
         return $scope.showEndPage || $scope.selectOfficeMode;
+    }
+
+    $scope.hideSubmit = function () {
+        return $scope.showEndPage || $scope.selectLabMode;
+    }
+
+    $scope.setSelectLabMode = function (flag) {
+        $scope.selectLabMode = flag;
     }
 
     $scope.setSelectOfficeMode = function(flag) {
