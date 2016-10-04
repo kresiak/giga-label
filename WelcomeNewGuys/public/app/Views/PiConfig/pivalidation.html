@@ -26,7 +26,7 @@
 
             </div>
         </div>
-        <div ng-show="answersByPi.AllowMode==='yes' && ! selectOfficeMode && ! selectLabMode && !showEndPage">  
+        <div ng-show="answersByPi.AllowMode==='yes' && ! selectOfficeMode && ! showEndPage"> 	<!-- selectLabMode && ! inutlie -->  
             <div class="row rowdistant">
                 <div class="col-sm-6 vcenter">
                     <h5>Which office and lab bench will you assign to {{userFullname}}?</h5>
@@ -158,7 +158,7 @@
                 </div>
             </div>
         </div>
-        <div ng-show="answersByPi.AllowMode==='yes' && selectOfficeMode && ! selectLabMode && ! showEndPage"> 
+        <div ng-show="answersByPi.AllowMode==='yes' && selectOfficeMode && ! showEndPage"> <!--  selectLabMode && ! inutlie -->
             <script type="text/ng-template" id="myPopoverTemplate.html">
                 <div ng-controller="deskAreaPopOverController">
                     <p>{{popOverText}}</p>

@@ -6,7 +6,7 @@ app.controller("pivalidationController",
     
     $scope.isLoaded = false;
     $scope.selectOfficeMode = false;
-    $scope.selectLabMode = false;
+   // $scope.selectLabMode = false;   inutile 
     $scope.showEndPage = false;
     
     var promises = [];
@@ -62,7 +62,7 @@ app.controller("pivalidationController",
             $scope.isLoaded = true;
         });
 
-    $q.all(promises)
+    $q.all(promises)		//important
         .then(function () {
             if ($scope.answersByPi && $scope.answersByPi.selectedLab) {
                 $scope.selectedLab = $scope.laboratoires.filter(function (la) { return la._id === $scope.answersByPi.selectedLab })[0].Name;
@@ -80,15 +80,6 @@ app.controller("pivalidationController",
     $scope.getCoordinate = function (desk) {
         var col = Excel.fromExcelColToNumber(desk.Column);
         var row = desk.Row;
-        var size = 20;
-        var left = (col - 1) * size;
-        var top = (row - 1) * size;
-        return left + ',' + top + ',' + (left + size) + ',' + (top + size);
-    };
-
-    $scope.getCoordinate = function (lab) {
-        var col = Excel.fromExcelColToNumber(lab.Column);
-        var row = lab.Row;
         var size = 20;
         var left = (col - 1) * size;
         var top = (row - 1) * size;
@@ -123,14 +114,6 @@ app.controller("pivalidationController",
     
     $scope.hideSubmit = function() {
         return $scope.showEndPage || $scope.selectOfficeMode;
-    }
-
-    $scope.hideSubmit = function () {
-        return $scope.showEndPage || $scope.selectLabMode;
-    }
-
-    $scope.setSelectLabMode = function (flag) {
-        $scope.selectLabMode = flag;
     }
 
     $scope.setSelectOfficeMode = function(flag) {

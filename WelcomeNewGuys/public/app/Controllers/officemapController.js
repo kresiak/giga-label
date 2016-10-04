@@ -5,10 +5,7 @@ app.controller("deskAreaPopOverController",
     function ($scope, $stateParams, dataService, $rootScope, $state, $q) {
     var desk = $scope.currentDesk;
     $scope.popOverText = 'The room is: ' + desk.Name;
- 
-     var lab = $scope.currentLab;               //  znika nappis nad popover  (desk nic nie daje jest Object object)
-     $scope.popOverText = 'The lab is: ' + lab.Name;
-});
+ });
 
 
 //app.controller("officemapController",
