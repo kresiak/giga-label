@@ -26,7 +26,7 @@
 
             </div>
         </div>
-        <div ng-show="answersByPi.AllowMode==='yes' && ! selectOfficeMode && ! showEndPage"> 	<!-- selectLabMode && ! inutlie -->  
+        <div ng-show="answersByPi.AllowMode==='yes' && ! selectOfficeMode && ! showEndPage"> 
             <div class="row rowdistant">
                 <div class="col-sm-6 vcenter">
                     <h5>Which office and lab bench will you assign to {{userFullname}}?</h5>
@@ -35,6 +35,8 @@
                     <div class="row">
                         <div class="col-sm-12">{{selectedDesk ? 'Selected desk: ' + selectedDesk : 'Nothing selected yet'}} </div>
                         <div class="col-sm-12">{{selectedLab ? 'Selected labo: ' + selectedLab : 'Nothing selected yet'}} </div>
+						<div class="col-sm-12">{{selectedDesk4 ? 'Selected desk +4: ' + selectedDesk4 : 'Nothing selected yet'}} </div>
+                        <div class="col-sm-12">{{selectedLab4 ? 'Selected labo +4: ' + selectedLab4 : 'Nothing selected yet'}} </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-12">
@@ -172,6 +174,9 @@
                     </div>
                     <div class="col-sm-4">{{selectedDesk ? 'Selected desk: ' + selectedDesk : ''}} </div>
                     <div class="col-sm-4">{{selectedLab ? 'Selected labo: ' + selectedLab : ''}} </div>
+
+					<div class="col-sm-4">{{selectedDesk4 ? 'Selected desk +4: ' + selectedDesk4 : ''}} </div>
+                    <div class="col-sm-4">{{selectedLab4 ? 'Selected labo +4: ' + selectedLab4 : ''}} </div>
                 </div>
                 
                 <div class="row rowdistant">
@@ -180,11 +185,16 @@
                             <img src="../../images/etage_1.png" usemap="#auto" />
                             <map name="auto" id="auto">
                                 <area ng-repeat="desk in desks" ng-mouseenter="enterArea(desk)" id="akx{{$index}}" uib-popover-template="'myPopoverTemplate.html'" popover-trigger="mouseenter" popover-popup-delay="200" shape="rect" coords="{{getCoordinate(desk)}}" ng-click="clickDesk(desk)" />
-                                <area ng-repeat="lab in laboratoires" ng-mouseenter="enterArea(lab)" id="akx{{$index}}" uib-popover-template="'myPopoverTemplate.html'" popover-trigger="mouseenter" popover-popup-delay="200" shape="rect" coords="{{getCoordinate(lab)}}" ng-click="clickLab(lab)" />
+                                <area ng-repeat="desk in laboratoires" ng-mouseenter="enterArea(desk)" id="akx{{$index}}" uib-popover-template="'myPopoverTemplate.html'" popover-trigger="mouseenter" popover-popup-delay="200" shape="rect" coords="{{getCoordinate(desk)}}" ng-click="clickLab(desk)" />
                             </map>
                         </uib-tab>
                         <uib-tab index="1" heading="Etage +4" select="setTab(1)">
-
+<!-- insert 08/10 desks4 -->	
+							<img src="../../images/etage_4.png" usemap="#auto4" id="photo_etage4" />
+                            <map name="auto4" id="auto">
+                                <area ng-repeat="desk in desks4" ng-mouseenter="enterArea(desk)" id="akx{{$index}}" uib-popover-template="'myPopoverTemplate.html'" popover-trigger="mouseenter" popover-popup-delay="200" shape="rect" coords="{{getCoordinate(desk)}}" ng-click="clickDesk4(desk)" />
+								<area ng-repeat="desk in laboratoires4" ng-mouseenter="enterArea(desk)" id="akx{{$index}}" uib-popover-template="'myPopoverTemplate.html'" popover-trigger="mouseenter" popover-popup-delay="200" shape="rect" coords="{{getCoordinate(desk)}}" ng-click="clickLab4(desk)" />
+                            </map>
                         </uib-tab>
                     </uib-tabset>
                 </div>

@@ -6,7 +6,6 @@ app.controller("pivalidationController",
     
     $scope.isLoaded = false;
     $scope.selectOfficeMode = false;
-   // $scope.selectLabMode = false;   inutile 
     $scope.showEndPage = false;
     
     var promises = [];
@@ -53,6 +52,18 @@ app.controller("pivalidationController",
             $scope.laboratoires = response.data;
         }
     ));
+	
+    promises.push(dataService.crudGetRecords('Desks4').then(
+        function (response) {
+            $scope.desks4 = response.data;
+        }
+    ));
+
+    promises.push(dataService.crudGetRecords('Laboratoires4').then(
+        function (response) {
+            $scope.laboratoires4 = response.data;
+        }
+    ));
 
     $q.all(promises)
         .then(function () {
@@ -62,10 +73,26 @@ app.controller("pivalidationController",
             $scope.isLoaded = true;
         });
 
-    $q.all(promises)		//important
+    $q.all(promises)		//important Lab
         .then(function () {
             if ($scope.answersByPi && $scope.answersByPi.selectedLab) {
-                $scope.selectedLab = $scope.laboratoires.filter(function (la) { return la._id === $scope.answersByPi.selectedLab })[0].Name;
+                $scope.selectedLab = $scope.laboratoires.filter(function (d) { return d._id === $scope.answersByPi.selectedLab })[0].Name;
+            }
+            $scope.isLoaded = true;
+        });
+    
+    $q.all(promises)
+        .then(function () {
+            if ($scope.answersByPi && $scope.answersByPi.selectedDesk4) {
+                $scope.selectedDesk4 = $scope.desks4.filter(function (d) { return d._id === $scope.answersByPi.selectedDesk4 })[0].Name;
+            }
+            $scope.isLoaded = true;
+        });
+
+    $q.all(promises)
+        .then(function () {
+            if ($scope.answersByPi && $scope.answersByPi.selectedLab4) {
+                $scope.selectedLab4 = $scope.laboratoires4.filter(function (d) { return d._id === $scope.answersByPi.selectedLab4 })[0].Name;
             }
             $scope.isLoaded = true;
         });
@@ -76,7 +103,7 @@ app.controller("pivalidationController",
         $scope.showEndPage = true;
         //$state.go('examen');
     }
-   
+
     $scope.getCoordinate = function (desk) {
         var col = Excel.fromExcelColToNumber(desk.Column);
         var row = desk.Row;
@@ -95,6 +122,25 @@ app.controller("pivalidationController",
         $scope.currentLab = lab;
     };
 
+    $scope.clickDesk4 = function (desk4) {
+        $scope.answersByPi.selectedDesk4 = desk4._id;
+        $scope.selectedDesk4 = desk4.Name;
+    };
+    
+    $scope.enterArea = function (desk4) {
+        $scope.currentDesk4 = desk4;
+    };
+	
+    $scope.clickLab4 = function (lab4) {                      
+        $scope.answersByPi.selectedLab4 = lab4._id;
+        $scope.selectedLab4 = lab4.Name;
+    };
+
+    $scope.enterArea = function (lab4) {
+        $scope.currentLab4 = lab4;
+    };
+
+// desk.Name must be last for popOverText... 
     $scope.clickDesk = function (desk) {
         $scope.answersByPi.selectedDesk = desk._id;
         $scope.selectedDesk = desk.Name;
