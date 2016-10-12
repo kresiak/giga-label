@@ -104,7 +104,6 @@ app.controller("pivalidationController",
         //$state.go('examen');
     }
 
-    $scope.getCoordinate = function (desk) {
         var col = Excel.fromExcelColToNumber(desk.Column);
         var row = desk.Row;
         var size = 20;
@@ -118,7 +117,7 @@ app.controller("pivalidationController",
         $scope.selectedLab = lab.Name;
     };
 
-    $scope.enterArea2 = function (lab) {
+    $scope.enterArea = function (lab) {
         $scope.currentLab = lab;
     };
 
@@ -127,7 +126,7 @@ app.controller("pivalidationController",
         $scope.selectedDesk4 = desk4.Name;
     };
     
-    $scope.enterArea3 = function (desk4) {
+    $scope.enterArea = function (desk4) {
         $scope.currentDesk4 = desk4;
     };
 	
@@ -136,17 +135,16 @@ app.controller("pivalidationController",
         $scope.selectedLab4 = lab4.Name;
     };
 
-    $scope.enterArea4 = function (lab4) {
+    $scope.enterArea = function (lab4) {
         $scope.currentLab4 = lab4;
     };
 
 // desk.Name must be last for popOverText... 
-    $scope.clickDesk = function (desk) {
         $scope.answersByPi.selectedDesk = desk._id;
         $scope.selectedDesk = desk.Name;
     };
     
-    $scope.enterArea1 = function (desk) {
+    $scope.enterArea = function (desk) {
         $scope.currentDesk = desk;
     };
 
