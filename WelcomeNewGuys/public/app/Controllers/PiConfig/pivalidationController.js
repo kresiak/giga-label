@@ -118,7 +118,7 @@ app.controller("pivalidationController",
         $scope.selectedLab = lab.Name;
     };
 
-    $scope.enterArea2 = function (lab) {
+    $scope.enterAreaLab = function (lab) {
         $scope.currentLab = lab;
     };
     $scope.clickDesk4 = function (desk4) {
@@ -126,7 +126,7 @@ app.controller("pivalidationController",
         $scope.selectedDesk4 = desk4.Name;
     };
     
-    $scope.enterArea3 = function (desk4) {
+    $scope.enterAreaDesk4 = function (desk4) {
         $scope.currentDesk4 = desk4;
     };
 	
@@ -135,7 +135,7 @@ app.controller("pivalidationController",
         $scope.selectedLab4 = lab4.Name;
     };
 
-    $scope.enterArea4 = function (lab4) {
+    $scope.enterAreaLab4 = function (lab4) {
         $scope.currentLab4 = lab4;
     };
 
@@ -145,7 +145,7 @@ app.controller("pivalidationController",
         $scope.selectedDesk = desk.Name;
     };
     
-    $scope.enterArea1 = function (desk) {
+    $scope.enterAreaDesk = function (desk) {
         $scope.currentDesk = desk;
     };
 
