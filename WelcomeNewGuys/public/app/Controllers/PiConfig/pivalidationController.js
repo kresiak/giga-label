@@ -121,7 +121,6 @@ app.controller("pivalidationController",
     $scope.enterArea2 = function (lab) {
         $scope.currentLab = lab;
     };
-
     $scope.clickDesk4 = function (desk4) {
         $scope.answersByPi.selectedDesk4 = desk4._id;
         $scope.selectedDesk4 = desk4.Name;
