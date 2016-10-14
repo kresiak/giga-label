@@ -35,8 +35,8 @@
                     <div class="row">
                         <div class="col-sm-12">{{selectedDesk ? 'Selected desk: ' + selectedDesk : 'Nothing selected yet'}} </div>
                         <div class="col-sm-12">{{selectedLab ? 'Selected labo: ' + selectedLab : 'Nothing selected yet'}} </div>
-						<div class="col-sm-12">{{selectedDesk4 ? 'Selected desk +4: ' + selectedDesk4 : 'Nothing selected yet'}} </div>
-                        <div class="col-sm-12">{{selectedLab4 ? 'Selected labo +4: ' + selectedLab4 : 'Nothing selected yet'}} </div>
+				<!--		<div class="col-sm-12">{{selectedDesk4 ? 'Selected desk +4: ' + selectedDesk4 : 'Nothing selected yet'}} </div>
+                        <div class="col-sm-12">{{selectedLab4 ? 'Selected labo +4: ' + selectedLab4 : 'Nothing selected yet'}} </div> -->
                     </div>
                     <div class="row">
                         <div class="col-sm-12">
@@ -167,7 +167,7 @@
                     <p>Presently: Latfa Karim</p>
                 </div>
             </script>
-                                                                                        
+
             <div>
                 <div class="row rowdistant">
                     <div class="col-sm-4"><a class="pointer" ng-click="setSelectOfficeMode(false)" >Close active screen</a>
@@ -175,7 +175,7 @@
                     <div class="col-sm-4">{{selectedDesk ? 'Selected desk: ' + selectedDesk : ''}} </div>
                     <div class="col-sm-4">{{selectedLab ? 'Selected labo: ' + selectedLab : ''}} </div>
                 </div>
-                
+
                 <div class="row rowdistant">
                     <uib-tabset active="tabNo">  
                         <uib-tab index="0" heading="Etage +1" select="setTab(0)"> 
@@ -188,9 +188,9 @@
                         <uib-tab index="1" heading="Etage +4" select="setTab(1)">
 <!-- insert 08/10 desks4 -->	
 							<img src="../../images/etage_4.png" usemap="#auto4" id="photo_etage4" />
-                            <map name="auto4" id="auto">
-                                <area ng-repeat="desk in desks4" ng-mouseenter="enterAreaDesk4(desk)" id="akx{{$index}}" uib-popover-template="'myPopoverTemplate.html'" popover-trigger="mouseenter" popover-popup-delay="200" shape="rect" coords="{{getCoordinate(desk)}}" ng-click="clickDesk4(desk)" />
-								<area ng-repeat="desk in laboratoires4" ng-mouseenter="enterAreaLab4(desk)" id="akx{{$index}}" uib-popover-template="'myPopoverTemplate.html'" popover-trigger="mouseenter" popover-popup-delay="200" shape="rect" coords="{{getCoordinate(desk)}}" ng-click="clickLab4(desk)" />
+                            <map name="auto4" id="auto4">
+							<area ng-repeat="desk in desks" ng-mouseenter="enterAreaDesk(desk)" id="akx{{$index}}" uib-popover-template="'myPopoverTemplate.html'" popover-trigger="mouseenter" popover-popup-delay="200" shape="rect" coords="{{getCoordinate(desk)}}" ng-click="clickDesk(desk)" />
+							<area ng-repeat="desk in laboratoires" ng-mouseenter="enterAreaLab(desk)" id="akx{{$index}}" uib-popover-template="'myPopoverTemplate.html'" popover-trigger="mouseenter" popover-popup-delay="200" shape="rect" coords="{{getCoordinate(desk)}}" ng-click="clickLab(desk)" />
                             </map>
                         </uib-tab>
                     </uib-tabset>
