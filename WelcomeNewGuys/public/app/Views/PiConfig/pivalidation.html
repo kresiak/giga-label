@@ -2,7 +2,6 @@
     <div class="panel-heading">
         <h2>{{piFullname}}, we need your help</h2>
     </div>
-
     <div class="panel-body" ng-if="isLoaded">
         <div class="row rowdistant" ng-hide="showEndPage">
             <div class="col-sm-6 vcenter">
@@ -23,7 +22,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
         <div ng-show="answersByPi.AllowMode==='yes' && ! selectOfficeMode && ! showEndPage"> 
@@ -35,15 +33,13 @@
                     <div class="row">
                         <div class="col-sm-12">{{selectedDesk ? 'Selected desk: ' + selectedDesk : 'Nothing selected yet'}} </div>
                         <div class="col-sm-12">{{selectedLab ? 'Selected labo: ' + selectedLab : 'Nothing selected yet'}} </div>
-				<!--		<div class="col-sm-12">{{selectedDesk4 ? 'Selected desk +4: ' + selectedDesk4 : 'Nothing selected yet'}} </div>
-                        <div class="col-sm-12">{{selectedLab4 ? 'Selected labo +4: ' + selectedLab4 : 'Nothing selected yet'}} </div> -->
+			
                     </div>
                     <div class="row">
                         <div class="col-sm-12">
                             <a class="pointer" ng-click="setSelectOfficeMode(true)">Choose from active screen</a>
                         </div>
                     </div>
-                   
                 </div>
             </div>
 
@@ -95,7 +91,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
             <div class="row rowdistant">
@@ -114,8 +109,7 @@
                         <div class="col-sm-12">
                             <div class="radio">
                                 <label><input type="radio" ng-model="answersByPi.LaboRatio" value="50">50% / 50%</label>
-                            </div>
-                        </div>
+                            </div>                        </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-12">
@@ -160,7 +154,7 @@
                 </div>
             </div>
         </div>
-        <div ng-show="answersByPi.AllowMode==='yes' && selectOfficeMode && ! showEndPage"> <!--  selectLabMode && ! inutlie -->
+        <div ng-show="answersByPi.AllowMode==='yes' && selectOfficeMode && ! showEndPage"> <!--  selectLabMode && ! inutlie --
             <script type="text/ng-template" id="myPopoverTemplate.html">
                 <div ng-controller="deskAreaPopOverController">
                     <p>{{popOverText}}</p>
